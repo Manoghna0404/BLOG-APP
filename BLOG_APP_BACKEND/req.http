@@ -1,0 +1,124 @@
+###user registration
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName":"Lakshmi",
+    "lastName":"Manoghna",
+    "email":"manoghna@gmail.com",
+    "password":"user@12345",
+    "profileImageUrl":"https://example.com/avatars/user.png"
+}
+
+### author registration
+POST http://localhost:4000/author-api/users
+Content-Type:application/json
+
+{
+ "firstName":"kaveri",
+ "lastName":"paidamarri",
+ "email":"kaveri@gmail.com",
+ "password":"kaveri@1234",
+ "profileImageUrl":"https://example.com/avatars/author.png"   
+}
+###admin registration
+POST http://localhost:4000/admin-api/users
+Content-Type:application/json
+
+{
+ "firstName":"admin",
+ "lastName":"1",
+ "email":"admin@gmail.com",
+ "password":"admin@123",
+ "profileImageUrl":"https://example.com/avatars/admin.png"   
+}
+### authentication
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"prasad@gmail.com",
+    "password":"prasad"
+}
+
+###create article
+POST http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author":"69896ea695e517fc7766aa65",
+    "title":"test4 article",
+    "category":"programming",
+    "content":"content of test4 article"
+}
+
+###get the articles of author
+GET http://localhost:4000/author-api/articles/69896ea695e517fc7766aa65
+
+###update article
+PUT http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author":"69896ea695e517fc7766aa65",
+    "articleId":"69898e707aed8345c13ee4ff",
+    "title":"test article",
+    "category":"fundamentals",
+    "content":"content of test article"
+}
+
+###logout
+GET http://localhost:4000/common-api/logout
+
+###get all articles
+GET http://localhost:4000/user-api/articles
+
+###delete the article with author id
+###DELETE http://localhost:4000/author-api/69ae8bba707f12d14c76596c/articleId/698ca1d69e02c3571a7ed7d0
+
+###soft-delete
+PATCH http://localhost:4000/author-api/articles/698ca1d69e02c3571a7ed7d0/status
+Content-Type: application/json
+
+{ "isArticleActive": true }
+
+###add comments
+PUT http://localhost:4000/user-api/articles
+Content-Type: application/json
+
+{
+    "user":"69c37fafd4f0e56553406e73",
+    "articleId":"69c4f04e936c6db2c140c881",
+    "comment":"good article"
+}
+
+
+###test res
+GET http://localhost:4000/test
+
+###admin login
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"santoshi@gmail.com",
+    "password":"santu@123"
+}
+
+###block the user
+GET http://localhost:4000/admin-api/block/69896816c8ba474e028289ab
+
+###unblock the user
+GET http://localhost:4000/admin-api/unblock/69896816c8ba474e028289ab
+
+###change the password
+PUT http://localhost:4000/common-api/change-password
+Content-Type: application/json
+
+{
+    "email":"manoghna@gmail.com",
+    "password":"user@12345",
+    "newPassword":"manu@123"
+}
+###
+GET http://localhost:4000/common-api/check-auth
