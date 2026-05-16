@@ -78,6 +78,7 @@
 import { create } from 'zustand'
 import axios from 'axios'
 import { useState } from 'react'
+import BASE_URL from './config/BaseApi'
 
 export const useAuth = create((set) => ({
 
@@ -100,7 +101,7 @@ export const useAuth = create((set) => ({
 
             //make api call
             let res = await axios.post(
-                "http://localhost:4000/common-api/login",
+                `${BASE_URL}/common-api/login`,
                 userCredObj,
                 { withCredentials: true }
             )
@@ -138,7 +139,7 @@ export const useAuth = create((set) => ({
 
             //make logout api req
             await axios.get(
-                "http://localhost:4000/common-api/logout",
+                `${BASE_URL}/common-api/logout`,
                 { withCredentials: true }
             )
 
@@ -169,7 +170,7 @@ export const useAuth = create((set) => ({
             set({ loading: true });
 
             const res = await axios.get(
-                "http://localhost:4000/common-api/check-auth",
+                `${BASE_URL}/common-api/check-auth`,
                 { withCredentials: true }
             );
 
