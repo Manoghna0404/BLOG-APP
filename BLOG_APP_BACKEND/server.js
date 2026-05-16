@@ -11,7 +11,7 @@ config()//process .env
 //create express application
 const app=exp();
 //use cors middleware
-app.use(cors({origin:[" https://blog-app-self-rho.vercel.app"],credentials:true}))
+app.use(cors({origin:["https://blog-app-frontend-delta-plum.vercel.app"],credentials:true}))
 //add body parser middleware
 app.use(exp.json())
 //connect to db
