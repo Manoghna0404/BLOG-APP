@@ -47,15 +47,6 @@ function Register() {
                 navigate('/login')
         }
         }
-        if(role==="Admin"){
-            //make api req to user-api
-            let resObj=await axios.post("http://localhost:4000/admin-api/users",formData)
-            console.log('res obj is',resObj)
-            if(resObj.status===201){
-                //navigate to login
-                navigate('/login')
-        }
-        }
     }catch(err){
             console.log(err.message)
             setError(err.response?.data?.error || "Registration failed")
@@ -88,9 +79,6 @@ function Register() {
                     </label>
                     <label>
                         <input type="radio" {...register("role", { required: true })} name='role' value="Author" className='mr-2'/>Author
-                    </label>
-                    <label>
-                        <input type="radio" {...register("role", { required: true })} name='role' value="Admin" className='mr-2'/>Admin
                     </label>
                 </div>
                 <div>
