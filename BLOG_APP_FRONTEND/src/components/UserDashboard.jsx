@@ -76,7 +76,7 @@ function UserProfile() {
     if (title.trim() === "") {
 
       const res = await axios.get(
-        "http://localhost:4000/user-api/articles",
+        `${BASE_URL}/user-api/articles`,
         { withCredentials: true }
       );
 
@@ -86,7 +86,7 @@ function UserProfile() {
     }
 
     const res = await axios.get(
-      `http://localhost:4000/user-api/articles/search/${title}`,
+      `${BASE_URL}/user-api/articles/search/${title}`,
       { withCredentials: true }
     );
 
