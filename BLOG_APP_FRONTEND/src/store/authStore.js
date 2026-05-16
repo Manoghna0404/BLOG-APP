@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import axios from 'axios'
 import { useState } from 'react'
-import BASE_URL from './config/BaseApi'
+import BASE_URL from '../components/config/BaseApi'
 
 export const useAuth = create((set) => ({
 
