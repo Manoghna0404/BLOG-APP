@@ -20,7 +20,7 @@ import {
   errorClass,
   inputClass
 } from "../styles/common.js";
-import BASE_URL from "./config/BaseApi.js";
+import BASE_URL from "./config/BaseApi";
 
 function ArticleByID() {
   const { id } = useParams();
