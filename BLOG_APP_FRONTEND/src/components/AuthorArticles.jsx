@@ -16,7 +16,7 @@ import {
   articleStatusActive,
   articleStatusDeleted,
 } from "../styles/common";
-import BASE_URL from "./config/BaseApi";
+
 
 function AuthorArticles() {
   const navigate = useNavigate();
