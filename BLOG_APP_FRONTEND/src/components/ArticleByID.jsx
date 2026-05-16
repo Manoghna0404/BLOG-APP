@@ -4,7 +4,6 @@ import axios from "axios";
 import { useAuth } from "../store/authStore";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import BASE_URL from "./config/BaseApi.js";
 import {
   articlePageWrapper,
   articleHeader,
