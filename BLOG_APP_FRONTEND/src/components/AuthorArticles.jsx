@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAuth } from "../store/authStore";
+import BASE_URL from "./config/BaseApi";
 
 import {
   articleCardClass,
@@ -15,6 +16,7 @@ import {
   articleStatusActive,
   articleStatusDeleted,
 } from "../styles/common";
+import BASE_URL from "./config/BaseApi";
 
 function AuthorArticles() {
   const navigate = useNavigate();
@@ -33,7 +35,7 @@ function AuthorArticles() {
       setLoading(true);
 
       try {
-        const res = await axios.get(`http://localhost:4000/author-api/articles/${user._id}`, { withCredentials: true });
+        const res = await axios.get(`${BASE_URL}/author-api/articles/${user._id}`, { withCredentials: true });
 
         setArticles(res.data.payload);
       } catch (err) {

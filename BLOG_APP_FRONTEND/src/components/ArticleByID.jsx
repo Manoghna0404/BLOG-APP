@@ -4,6 +4,7 @@ import axios from "axios";
 import { useAuth } from "../store/authStore";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import BASE_URL from "./config/BaseApi.js";
 import {
   articlePageWrapper,
   articleHeader,
@@ -20,6 +21,7 @@ import {
   errorClass,
   inputClass
 } from "../styles/common.js";
+import BASE_URL from "./config/BaseApi.js";
 
 function ArticleByID() {
   const { id } = useParams();
@@ -40,7 +42,7 @@ function ArticleByID() {
       setLoading(true);
 
       try {
-        const res = await axios.get(`http://localhost:4000/user-api/article/${id}`, { withCredentials: true });
+        const res = await axios.get(`${BASE_URL}/user-api/article/${id}`, { withCredentials: true });
 
         setArticle(res.data.payload);
       } catch (err) {
@@ -70,7 +72,7 @@ function ArticleByID() {
 
     try {
       const res = await axios.patch(
-        `http://localhost:4000/author-api/articles/${id}/status`,
+        `${BASE_URL}/author-api/articles/${id}/status`,
         { isArticleActive: newStatus },
         { withCredentials: true },
       );
@@ -96,18 +98,6 @@ function ArticleByID() {
   const editArticle = (articleObj) => {
     navigate("/edit-article", { state: articleObj });
   };
-
-  // const addComment = async (commentObj) => {
-  //   //add artcileId
-  //   commentObj.articleId = article._id;
-  //   commentObj.user=user.userId;
-  //   console.log(commentObj);
-  //   let res = await axios.put("http://localhost:4000/user-api/articles", commentObj, { withCredentials: true });
-  //   if (res.status === 200) {
-  //     toast.success(res.data.message);
-  //     setArticle(res.data.payload);
-  //   }
-  // };
   const addComment = async (commentObj) => {
 
   try {
@@ -115,7 +105,7 @@ function ArticleByID() {
     commentObj.articleId = article._id;
 
     let res = await axios.put(
-      "http://localhost:4000/user-api/articles",
+      `${BASE_URL}/user-api/articles`,
       commentObj,
       { withCredentials: true }
     );

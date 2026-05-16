@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useNavigate} from 'react-router'
 import { errorClass, loadingClass } from '../styles/common'
 import { toast } from 'react-hot-toast'
+import BASE_URL from './config/BaseApi'
 
 function Register() {
     const {register,handleSubmit,formState:{errors},reset}=useForm()
@@ -30,7 +31,7 @@ function Register() {
         let {role,...userObj}=newUser
         if(role==="User"){
             //make api req to user-api
-            let resObj=await axios.post("http://localhost:4000/user-api/users",formData)
+            let resObj=await axios.post(`${BASE_URL}/user-api/users`,formData)
             console.log('res obj is',resObj)
             if(resObj.status===201){
                 toast.success("Registration successful! Please login.")
@@ -40,7 +41,7 @@ function Register() {
         }
         if(role==="Author"){
             //make api req to user-api
-            let resObj=await axios.post("http://localhost:4000/author-api/users",formData)
+            let resObj=await axios.post(`${BASE_URL}/author-api/users`,formData)
             console.log('res obj is',resObj)
             if(resObj.status===201){
                 //navigate to login
